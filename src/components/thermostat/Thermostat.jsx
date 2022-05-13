@@ -1,9 +1,24 @@
+import { useDispatch, useSelector } from "react-redux";
+import {
+  increaseThermostat,
+  decreaseThermostat,
+} from "../../store/house/slice";
+import { selectThermostat } from "../../store/house/selectors";
+
 export const Thermostat = () => {
+  const dispatch = useDispatch();
+  const thermostat = useSelector(selectThermostat);
+
   return (
     <div className="thermostat">
-      <button>-</button>
-      *** Thermostat ***
-      <button>+</button>
+      <button onClick={() => dispatch(increaseThermostat())}>+</button>
+      <div>Thermostat power = {thermostat}</div>
+      <button
+        disabled={thermostat === 0}
+        onClick={() => dispatch(decreaseThermostat())}
+      >
+        -
+      </button>
     </div>
   );
 };

@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+export const radioGenre = ["chill out", "rock", "lounge"];
+
 const initialState = {
   lamps: [
     { id: 1, power: false },
@@ -8,7 +10,7 @@ const initialState = {
     { id: 4, power: false },
   ],
   radio: {
-    genre: ["chill out", "rock", "lounge"],
+    genre: "classic rock",
     power: false,
   },
   thermostat: 20,
@@ -24,11 +26,26 @@ export const house = createSlice({
     toggleRadio: (state, action) => {
       state.radio.power = !state.radio.power;
     },
+    setRadioGenre: (state, action) => {
+      state.radio.genre = radioGenre[action.payload];
+    },
+    increaseThermostat: (state) => {
+      state.thermostat = state.thermostat + 10;
+    },
+    decreaseThermostat: (state) => {
+      state.thermostat = state.thermostat - 10;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
 // as we add cases to our reducer we will also export the corresponding actions
-export const { toggleLamps, toggleRadio } = house.actions;
+export const {
+  toggleLamps,
+  toggleRadio,
+  setRadioGenre,
+  increaseThermostat,
+  decreaseThermostat,
+} = house.actions;
 
 export default house.reducer;
