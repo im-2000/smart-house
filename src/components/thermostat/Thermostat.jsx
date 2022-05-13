@@ -14,7 +14,7 @@ export const Thermostat = () => {
       <button onClick={() => dispatch(increaseThermostat())}>+</button>
       <div>Thermostat power = {thermostat}</div>
       <button
-        disabled={thermostat === 0}
+        disabled={thermostat === 20}
         onClick={() => dispatch(decreaseThermostat())}
       >
         -

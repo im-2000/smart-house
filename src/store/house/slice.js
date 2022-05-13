@@ -30,10 +30,10 @@ export const house = createSlice({
       state.radio.genre = radioGenre[action.payload];
     },
     increaseThermostat: (state) => {
-      state.thermostat = state.thermostat + 10;
+      state.thermostat = state.thermostat + 5;
     },
     decreaseThermostat: (state) => {
-      state.thermostat = state.thermostat - 10;
+      state.thermostat = state.thermostat - 5;
     },
   },
 });

@@ -14,28 +14,28 @@ export const Lamps = () => {
           dispatch(toggleLamps("0"));
         }}
       >
-        Lamp 1 Turn {lamps[0] ? "OFF" : "ON"}
+        Turn Lamp 1 {lamps[0] ? "OFF" : "ON"}
       </button>
       <button
         onClick={() => {
           dispatch(toggleLamps("1"));
         }}
       >
-        Lamp 2 Turn {lamps[1] ? "OFF" : "ON"}
+        Turn Lamp 2 {lamps[1] ? "OFF" : "ON"}
       </button>
       <button
         onClick={() => {
           dispatch(toggleLamps("2"));
         }}
       >
-        Lamp 3 Turn {lamps[2] ? "OFF" : "ON"}
+        Turn Lamp 3 {lamps[2] ? "OFF" : "ON"}
       </button>
       <button
         onClick={() => {
           dispatch(toggleLamps("3"));
         }}
       >
-        Lamp 4 Turn {lamps[3] ? "OFF" : "ON"}
+        Turn Lamp 4 {lamps[3] ? "OFF" : "ON"}
       </button>
     </div>
   );
