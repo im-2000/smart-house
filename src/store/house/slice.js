@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const radioGenre = ["chill out", "rock", "lounge"];
+export const radioGenre = ["chill out", "classic rock", "lounge"];
 
 const initialState = {
   lamps: [
