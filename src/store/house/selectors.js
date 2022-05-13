@@ -11,11 +11,10 @@ export const selectThermostat = (reduxState) =>
 
 export const selectlampsPower = (lamps) => {
   const lampsStatusList = Object.values(lamps);
-  const numberOfWorkingLamps = lampsStatusList.reduce(
+  const lampsTotal = lampsStatusList.reduce(
     (previousValue, currentValue) => previousValue + (currentValue ? 25 : 0),
     0
   );
-  const lampsTotal = numberOfWorkingLamps * 4;
 
   return lampsTotal;
 };

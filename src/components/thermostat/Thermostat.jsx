@@ -3,24 +3,17 @@ import {
   increaseThermostat,
   decreaseThermostat,
 } from "../../store/house/slice";
-import {
-  selectThermostat,
-  selectThermostatPower,
-  selectRadioPower,
-  selectlampsPower,
-} from "../../store/house/selectors";
+import { selectThermostat } from "../../store/house/selectors";
 
-export const Thermostat = () => {
+export const Thermostat = (power) => {
   const dispatch = useDispatch();
   const thermostat = useSelector(selectThermostat);
-  const thermostatPower = useSelector(selectThermostatPower);
-  const radioPower = useSelector(selectRadioPower);
-  const lampsPower = useSelector(selectlampsPower);
 
+  console.log("power", power);
   return (
     <div className="thermostat">
       <button
-        disabled={lampsPower + radioPower + thermostatPower > 100}
+        disabled={power.power >= 100}
         onClick={() => dispatch(increaseThermostat())}
       >
         +
@@ -28,7 +21,7 @@ export const Thermostat = () => {
 
       <div>Thermostat power = {thermostat}</div>
       <button
-        disabled={thermostat === 0}
+        disabled={thermostat === 20}
         onClick={() => dispatch(decreaseThermostat())}
       >
         -

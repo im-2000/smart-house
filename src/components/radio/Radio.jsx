@@ -7,12 +7,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { setRadioGenre, toggleRadio } from "../../store/house/slice";
 import { radioGenre } from "../../store/house/slice";
 
-export const Radio = () => {
+export const Radio = (power) => {
   const dispatch = useDispatch();
-
   const radioToggle = useSelector(selectToggleRadio);
   const currentRadioGenre = useSelector(selectRadioGenre);
-  console.log("radio genre", currentRadioGenre);
 
   return (
     <div className="radio-container">
@@ -25,6 +23,7 @@ export const Radio = () => {
         <option value={2}>lounge</option>
       </select>
       <button
+        disabled={!radioToggle && power.power >= 100}
         onClick={() => {
           dispatch(toggleRadio("power"));
           dispatch(setRadioGenre(1));
