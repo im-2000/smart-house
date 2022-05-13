@@ -21,11 +21,14 @@ export const house = createSlice({
     toggleLamps: (state, action) => {
       state.lamps[action.payload] = !state.lamps[action.payload];
     },
+    toggleRadio: (state, action) => {
+      state.radio.power = !state.radio.power;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
 // as we add cases to our reducer we will also export the corresponding actions
-export const { toggleLamps } = house.actions;
+export const { toggleLamps, toggleRadio } = house.actions;
 
 export default house.reducer;
