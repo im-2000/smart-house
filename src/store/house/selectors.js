@@ -9,7 +9,7 @@ export const selectRadioGenre = (reduxState) =>
 export const selectThermostat = (reduxState) =>
   reduxState.houseReducer.thermostat;
 
-const calculatelampsPower = (lamps) => {
+export const selectlampsPower = (lamps) => {
   const lampsStatusList = Object.values(lamps);
   const numberOfWorkingLamps = lampsStatusList.reduce(
     (previousValue, currentValue) => previousValue + (currentValue ? 25 : 0),
@@ -20,19 +20,19 @@ const calculatelampsPower = (lamps) => {
   return lampsTotal;
 };
 
-const calculateRadioPower = (radio) => {
+export const selectRadioPower = (radio) => {
   return radio.power ? 25 : 0;
 };
 
-const calculateThermostatPower = (thermostat) => {
+export const selectThermostatPower = (thermostat) => {
   return (thermostat - 20) * 10;
 };
 
 export const selectTotalPower = (reduxState) => {
   const { lamps, radio, thermostat } = reduxState.houseReducer;
 
-  const lampsPower = calculatelampsPower(lamps);
-  const radioPower = calculateRadioPower(radio);
-  const thermostatPower = calculateThermostatPower(thermostat);
+  const lampsPower = selectlampsPower(lamps);
+  const radioPower = selectRadioPower(radio);
+  const thermostatPower = selectThermostatPower(thermostat);
   return lampsPower + radioPower + thermostatPower;
 };
