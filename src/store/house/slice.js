@@ -1,11 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const genre = ["chill out", "rock", "lounge"];
+
 const initialState = {
-  amount: 0,
+  lamps: [
+    { id: 1, power: false },
+    { id: 2, power: false },
+    { id: 3, power: false },
+    { id: 4, power: false },
+  ],
+  radio: {
+    genre: ["chill out", "rock", "lounge"],
+    power: false,
+  },
+  thermostat: 20,
 };
 
 export const house = createSlice({
-  name: "balance",
+  name: "house",
   initialState,
   reducers: {},
 });
